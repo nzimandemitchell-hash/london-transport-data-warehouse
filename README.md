@@ -35,6 +35,23 @@ The project uses four main tables:
 
 The fact table connects to the dimension tables through their respective keys.
 
+### Data Warehouse Schema
+
+```mermaid
+flowchart TD
+    P["DimPeriod"] -->|"PeriodKey"| F["FactTransportJourneys"]
+    T["DimTransportMode"] -->|"TransportModeKey"| F
+
+    P --- P1["Reporting period dates"]
+    T --- T1["Transport mode name"]
+    F --- F1["JourneysMillions"]
+
+    style P fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style T fill:#ffedd5,stroke:#ea580c,color:#9a3412
+    style F fill:#dcfce7,stroke:#16a34a,color:#166534
+```
+
+
 ## Data Quality and Validation
 
 The project includes SQL scripts for data quality checks and warehouse validation.
